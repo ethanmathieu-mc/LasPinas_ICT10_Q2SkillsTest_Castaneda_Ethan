@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Quarter 2 Skills Test - Element Checker</title>
+    <style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(rgba(5, 10, 14, 0.45), rgba(5, 10, 14, 0.45)), url('badlands.jpg') no-repeat center center fixed;
+        background-size: cover;
+        font-family: 'Rajdhani', Arial, sans-serif;
+    }
+
+    .header {
+        position: relative;
+        width: 100%;
+        height: 70px;
+        background: #380e0e;
+        border-bottom: 3px solid #f91c1c;
+        box-shadow: 0 4px 15px rgba(249, 28, 28, 0.2);
+    }
+
+
+    .header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #f91c1c;
+        box-shadow: 0 0 8px #f91c1c;
+    }
+
+    .header::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.2) 0px,
+            rgba(0, 0, 0, 0.2) 1px,
+            transparent 1px,
+            transparent 3px
+        );
+        pointer-events: none;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 36px 20px;
+        width: 100%;
+    }
+
+    .header-box {
+        width: 100%;
+        max-width: 340px;
+        background: rgba(18, 22, 28, 0.92);
+        border: 1px solid #ff1a2b;
+        color: #ffffff;
+        border-radius: 6px;
+        padding: 20px 28px;
+        text-align: center;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+        margin-bottom: 22px;
+    }
+
+    .header-box h1 {
+        margin: 0 0 6px 0;
+        font-size: 2rem;
+        line-height: 1.1;
+    }
+
+    .header-box p {
+        margin: 0;
+        font-size: 1.05rem;
+        opacity: 0.9;
+    }
+
+    .box {
+        width: 100%;
+        max-width: 440px;
+        background: rgba(18, 22, 28, 0.92);
+        border: 1px solid #ff1a2b;
+        border-radius: 6px;
+        padding: 28px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 18px;
+    }
+
+    .input {
+        width: 100%;
+        padding: 13px 16px;
+        background: #0d1117;
+        border: 1px solid #2a3441;
+        border-radius: 5px;
+        color: #ffffff;
+        font-family: 'Rajdhani', sans-serif;
+        font-size: 1.1rem;
+        outline: none;
+        text-align: center;
+        margin-bottom: 14px;
+    }
+
+    .input:focus {
+        border-color: #ff4d5a;
+    }
+
+    .buttoninput {
+        width: 100%;
+        padding: 14px;
+        background: #b30012;
+        border: 1px solid #ff4d5a;
+        border-radius: 4px;
+        color: #ffffff;
+        font-family: 'Rajdhani', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 800;
+        letter-spacing: 2px;
+        cursor: pointer;
+    }
+
+    .buttoninput:hover {
+        background: #d10015;
+    }
+
+    .ruintheclub {
+        width: 100%;
+        max-width: 440px;
+        min-height: 54px;
+        background: rgba(15, 23, 30, 0.95);
+        border-radius: 6px;
+        border: 1px solid #ff4d5a;
+        padding: 18px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-align: center;
+        color: #ffffff;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.65);
+    }
+    </style>
+</head>
+
+<body>
+    <header class="header"></header>
+
+    <div class="main">
+        <header class="header-box">
+            <div class="reactor"></div>
+            <h1>Non-Metal Elements</h1>
+            <p>Periodic Table Information Finder.</p>
+        </header>
+
+        <div class="box">
+            <form onsubmit="return false;">
+                <input type="text" id="element-symbol" class="input" placeholder="Enter a Non-Metal Element">
+                <input type="button" id="non-metals" py-click="element_checker" class="buttoninput" value="Check Details">
+            </form>
+        </div>
+
+        <div id="result" class="ruintheclub"></div>
+    </div>
+
+    <script type="py" src="main.py"></script>
+</body>
+</html>
